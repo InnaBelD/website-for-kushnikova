@@ -1,0 +1,24 @@
+.navbar {
+    background-color:rgb(168, 196, 155);
+}
+.container-fluid{
+    background-color:rgb(168, 196, 155);
+}
+.nav-link{
+    background-color:rgb(168, 196, 155);
+}
+.page-footer{
+    background-color:rgb(168, 196, 155);
+}
+#dropdown-basic{
+    padding: 8px;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+#dropdown-basic:active,
+#dropdown-basic:focus {
+    box-shadow: none !important;
+}

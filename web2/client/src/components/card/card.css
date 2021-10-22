@@ -1,0 +1,29 @@
+.card{
+      margin: 10%;
+      background-color:rgb(168, 196, 155);
+    }
+
+.card-img{
+    align-self: center;
+    width:50%;
+    height:50%;
+}
+.card-header{
+    font-weight:bolder;
+}
+.like{
+    margin-right: 10%;
+    background-color:rgb(180, 211, 166);
+
+}
+
+.like:focus:not(:active){
+    background-color:rgb(112, 161, 90); 
+    pointer-events: none;   
+}
+.buy{
+    background-color:rgb(180, 211, 166);
+}
+.buy:active{
+    background-color:rgb(112, 161, 90);   
+}
