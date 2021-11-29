@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <style>
+      .basket{
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+      table{        
+        width: 95%;
+        margin: auto; 
+        border: 5px solid rgb(112, 161, 90);     
+      }
+      .row1{
+        padding-bottom: 5px;
+      }
+      .el-text{
+        font-weight: bolder;
+      }
+      .el-text1{
+        font-weight: bolder;
+      }
+      .paid{
+        background-color:  rgb(132, 175, 112);     
+        width: 22%;
+        padding: auto;
+      }
+      .pay{
+        background-color: rgb(168, 196, 155);
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+      }
+      .pay:active {
+        background: rgb(112, 161, 90);
+      }
+      .for_pay{
+        padding-bottom: 5px;
+      }
+    </style>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <%let sum=0 %>
+  <%let totalPrice=0 %>
+  <div class="main">
+    <h1 align="center">Корзина</h1>
+    <div class="row">
+      <div class="basket col-xl-9">
+        <table>
+          <tr>
+            <th>
+              <h4>Продукты</h4>
+            </th>
+            <th>
+              <h4>Название</h4>
+            </th>
+            <th>
+              <h4>Количество</h4>
+            </th>
+            <th>
+              <h4>Цена</h4>
+            </th>
+            <th>
+              <h4>Удалить из корзины</h4>
+            </th>
+          </tr>
+          <%let delBut ='delBut';
+            let id=0;%>
+          <% products.forEach(function(product){  %>
+          <tr>
+            <% let didi = delBut+id++;%>
+            <%- include('../partials/element_for_basket.ejs', {product:product, delBut:didi}); %>
+            
+          </tr>
+          <%sum +=product.price %>
+          <% }); %>
+        </table>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                Вы точно хотите удалить данный товар?
+              </div>
+              <div class="modal-footer">
+                <button class="delete del btn-secondary" data-bs-ok=<%= "#"+delBut%>>Да</button>
+                <button class="delete btn-primary" data-bs-dismiss="modal">Нет</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="paid col-xl-3">
+        <h3 class="row1">Сумма заказа</h3>
+        <div class="row1 row">
+          <h4>Стоимость: </h4>
+          <span class="el-text"><%= sum%></span>
+        </div>
+        <div class="row1 row">
+          <h4>Стоимость с учётом доставки: </h4>
+          <% if (sum==0) {totalPrice=0} else {totalPrice=sum+200}%>
+          <span class="el-text1"><%= totalPrice%></span>
+        </div>
+        <div class="border-top my-3"></div>
+        <div class="for_pay">
+          <button class="pay" data-bs-toggle="modal" data-bs-target="#exampleModal1">Оплатить</button>
+        </div>
+        <div class="pay_modal modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Для того, чтобы закончить оплату, введите адрес, на который хотите получить товары</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+              </div>
+              <div class="modal-body">
+                <table class="enter" align="center">
+                  <tr>
+                    <th style="padding: 20px">Страна</th>
+                    <th>
+                      <select name="country">
+                        <option value="s2">Россия</option>
+                        <option value="s3">Украина</option>
+                        <option selected value="s1">Беларусь</option>
+                      </select>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th style="padding: 20px">Город</th>
+                    <th>
+                      <input class="form-control me-2" placeholder="Введите ваш город"></input>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th style="padding: 20px">Улица, дом, квартира</th>
+                    <th>
+                      <input class="form-control me-2" placeholder="Введите ваш адрес"></input>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th style="padding: 20px">Индекс</th>
+                    <th>
+                      <input class="form-control me-2" placeholder="Введите ваш индекс"></input>
+                    </th>
+                  </tr>                    
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button class="delete del btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" >Оплатить</button>
+                <button class="delete btn-secondary" data-bs-dismiss="modal">Отмена</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body">
+                Спасибо за заказ!
+              </div>
+              <div class="modal-footer">
+                <button class="delete btn-primary" data-bs-target="#exampleModal1" data-bs-toggle="modal" data-bs-dismiss="modal">Ок</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+<script src="/js/sum.js"></script>
+<script src="/js/delete.js"></script>
+</body>
+</html>

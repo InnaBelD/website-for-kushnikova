@@ -1,0 +1,77 @@
+
+<ul class="list-unstyled ps-0">
+    <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+            data-bs-target="#home-collapse" aria-expanded="true">
+            Категории
+        </button>
+        <div class="collapse show" id="home-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li class="row" id = "checkers">
+                    <input type="checkbox" id="check1" class="col-xl-2">
+                    <label for="check1" class="col-xl-10">Фигурки</label>
+                </li>
+                <li class="row" id = "checkers">
+                    <input type="checkbox" id="check2" class="col-xl-2">
+                    <label for="check2" class="col-xl-10">Манга</label>
+                </li>
+                <li class="row" id = "checkers">
+                    <input type="checkbox" id="check3" class="col-xl-2">
+                    <label for="check3" class="col-xl-10">Другое</label>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+            data-bs-target="#dashboard-collapse" aria-expanded="false">
+            Цена
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+            <div>
+                <div class="checkers">
+                    <span>От</span>
+                    <div class="checkers">
+                        <input type="text" value="0" name="startN" data-filter-name="priceU">
+                    </div>
+                </div>
+                <div class="checkers">
+                    <span>До</span>
+                    <div class="checkers">
+                        <input type="text" value="10000" name="endN" data-filter-name="priceU">
+                    </div>
+                </div>
+                <button class="checker">Ок</button>
+                <button class="checker">Сбросить</button>
+            </div>
+        </div>
+    </li>
+    
+    <li class="border-top my-3"></li>
+</ul>
+
+<style>
+    #check1{
+        margin: auto;
+    }
+    #check2{
+        margin: auto;
+    }
+    #check3{
+        margin: auto;
+    }
+    #checkers{
+        margin: 5px;
+    }
+    .checker{
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+        margin: 10px; 
+        background: rgb(168, 196, 155); 
+    }
+    .checker:active {
+        background: rgb(112, 161, 90);
+    }
+</style>

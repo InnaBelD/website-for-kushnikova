@@ -1,0 +1,48 @@
+<th>
+    <!-- <h4>Наименования товаров</h4> -->
+    <a href="/product">
+        <h4 class="card-title"><%= product.title %></h4>
+    </a>
+</th>
+<th>
+    <!-- <h4>Изображения</h4> -->
+    <img src=<%= product.img %> class="element-img" alt="img_product" />
+</th>
+<th>
+    <!-- <h4>Цена за единицу</h4> -->
+    <span class="card-text"><%= product.price %></span>
+    <span>руб.</span>
+</th>
+<th>
+    <!-- <h4>Количество</h4> -->
+    <span class="card-text"><%= product.count_prod %></span>
+</th>
+<th>
+    <!-- <h4>Общая сумма</h4> -->
+    <span><%= product.price*product.count_prod%></span>
+</th>
+<th>
+    <!-- <h4>Статус</h4> -->
+    <span class="card-text"><%= product.del_status %></span>
+</th>
+<th>
+    <!-- <h4>Дата заказа</h4> -->
+    <span class="card-text"><%= product.del_data %></span>
+</th>
+
+<style>
+    .element-img {
+        width: 30%;
+    }
+    #number {
+        width: 5em;
+    }
+    th{
+        border: 2px solid rgb(112, 161, 90);
+        width: 1%;
+    }
+    .card-tittle{
+        align-content: center;
+    }  
+    
+</style>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <style>
+        container{
+
+        display: inline-block;
+        flex-direction: row;
+        justify-content: flex-start;
+        border: 5px solid black;
+        padding: 20px;
+        }  
+        .well{
+            background-color: rgb(168, 196, 155);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div class="row">
+        <div class="well col-xl-2">
+                <%- include('../partials/sidebar'); %>
+        </div>
+        <div class="main col-xl-10">
+            <h1 align="center">Популярное!</h1>
+            <div class="row">
+                <% products.forEach(function(product){  %>
+                <div class="col-xl-3 col-md-6 col-sm-12">
+                    <%- include('../partials/card.ejs', {product:product}); %>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+<script src="/js/like.js"></script>
+</body>
+</html>

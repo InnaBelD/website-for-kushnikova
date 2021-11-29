@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <style>
+      .pic{
+        text-align: center;
+      }
+      #carouselExampleControls{
+        width: 300px;
+        height: 300px;   
+      }
+      .d-block{
+        align-self: center;
+        object-fit: contain;
+        height: 50vh;
+      }
+      .for_inline{
+        display: inline-block;
+      }
+      .info{
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+      .buttons{
+        flex: 1;
+        padding: 0 16px;
+      }
+      .like1 {        
+        margin-right: 10%;
+        background-color: rgb(180, 211, 166);
+        font-size: 140%;
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+      }
+      .buy {
+        font-size: 140%;
+        margin-right: 10%;
+        background-color: rgb(180, 211, 166);
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+      }
+
+      .delete{
+        margin-right: 10%;
+        background-color: rgb(180, 211, 166) !important;
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142) !important;
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142) !important;
+      }
+
+      .btn-primary:hover{
+        background-color: rgb(168, 196, 155);
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);        
+      }
+      .btn-primary:active{
+        background-color: rgbrgb(168, 196, 155);
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);        
+      }
+
+      .btn-secondary:hover{
+        background-color: rgb(168, 196, 155);
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);        
+      }
+      .btn-secondary:active{
+        background-color: rgb(168, 196, 155);
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);        
+      }
+
+      .buy:active {
+      background-color: rgb(112, 161, 90);
+      }
+      .otherProd{
+        padding-top: 20px;
+      }
+      /* .cards{
+        height: 20em;
+        min-width: 20em;
+      } */
+  </style>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="main">
+    <h1 align="center">Товар</h1>
+    <div class="row">
+      <div class="col-xl-5 col-sm-12">
+        <div class="container" text-align="center">
+          <div id="carouselExampleControls" class="carousel slide position-relative start-50" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src=<%= imges[0].img %> class="d-block w-100" alt="image" />
+              </div>
+              <% for  (let i = 1; i<imges.length; i++){  %>
+              <div class="carousel-item">
+                <img src=<%= imges[i].img %> class="d-block w-100" alt="image" />
+              </div>
+              <% } %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-7 col-sm-12">
+          <div class="info">
+            <p>Описание</p>
+            Какое-то описание. Много-много описания товара, его преимуществ и недостатков
+            <p>Размер ещё</p>
+            Цена
+          </div>
+          <div class="buttons inline">
+            <button type="submit" class="like1" style="color: black">&#9829;</button>
+            <button type="submit" class="buy"> Добавить в корзину</button>
+            <button class="delete btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <img src="http://cdn.onlinewebfonts.com/svg/img_329318.png" height="30px" width="30px" alt="delete" />
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    Вы точно хотите удалить данный товар?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="delete btn-secondary" data-bs-dismiss="modal">Да</button>
+                    <button type="button" class="delete btn-primary" data-bs-dismiss="modal">Нет</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <a href="/add"> <button type="submit" class="buy" >Редактировать</button>
+           </a>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="otherProd">
+    <h4>Похожие товары</h4>
+    <div class="row">
+      <% products.forEach(function(product){  %>
+      <div class="col-xl-3 col-md-6 col-sm-12">
+        <%- include('../partials/card.ejs', {product:product}); %>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+<script src="/js/like.js"></script>
+</body>
+</html>

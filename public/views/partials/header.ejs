@@ -1,0 +1,114 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Главная</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Каталог
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="/catalog">Всё</a></li>
+              <li><a class="dropdown-item" href="/catalog">Фигурки</a></li>
+              <li><a class="dropdown-item" href="/catalog">Манга</a></li>
+              <li><a class="dropdown-item" href="/catalog">Другое</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Вход/Регистрация</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/account">Личный кабинет</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/add">Добавить товар</a>
+        </li>
+      </ul>
+
+      <div class="navbar-nav mb-2 mb-lg-0">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Что вы хотите найти?" aria-label="Search"></input>
+          <a class="btn btn-outline-success" type="submit" href="/search" >Поиск</a>
+        </form>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/like">
+              <img src="https://cdn140.picsart.com/303483155190211.png" height="30px" width="30px" alt="favourite" />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/basket">
+              <img
+                src="https://ylianova.ru/800/600/https/www.pinclipart.com/picdir/big/156-1566134_clip-art-shopping-cash-png-download.png"
+                height="30px" width="30px" alt="buy" />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Выход</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .dropdown-menu{
+    background-color: rgb(168, 196, 155);
+  }
+  .dropdown-item:hover{
+    background-color: rgb(139, 160, 129);
+  }
+  .navbar {
+    background-color: rgb(168, 196, 155);
+  }
+
+  .container-fluid {
+    background-color: rgb(168, 196, 155);
+  }
+
+  .nav-link {
+    background-color: rgb(168, 196, 155);
+  }
+
+  .page-footer {
+    background-color: rgb(168, 196, 155);
+  }
+
+  #dropdown-basic {
+    padding: 8px;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  #dropdown-basic:active,
+  #dropdown-basic:focus {
+    box-shadow: none !important;
+  }
+
+  #dropdownMenuButton1 {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    color: rgba(0, 0, 0, .7);
+    padding-top: .5rem;
+  }
+
+  .btn{
+    padding: 8px;
+    align-items: center;
+  }
+</style>

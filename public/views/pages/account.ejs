@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <style>
+      .save {
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+        background: rgb(168, 196, 155);
+      }
+
+      .save:active {
+        background: rgb(112, 161, 90);
+      }
+
+      .showOrder {
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+        background: rgb(168, 196, 155);
+      }
+
+      .showOrder:active {
+        background: rgb(112, 161, 90);
+      }
+      #necessary{
+        font-size: 15px;
+      }
+      .info_about{
+        width: 50%; 
+        margin: auto;
+      }
+      .forUser{
+        border: none;
+      }
+
+      .order{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 2px solid rgb(154, 180, 142);
+        background-color: rgb(181, 201, 172);
+      }
+      .numb_ord{
+        margin: 20px;
+        font-size: 30px;
+      }
+      .info_cost{
+        margin: 20px;
+        font-size: 20px;
+        text-align: right;
+        
+      }
+      .sums{
+        font-weight: bolder;
+        margin-left: 5px;
+      }
+      .some_sum{
+        border: 2px solid rgb(112, 161, 90);
+        margin: 5px;
+        background-color: rgb(134, 187, 109);
+      }
+
+      .numPhone{
+        width: 70vh;
+margin-left: 40vh;
+      }
+    </style>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="main">
+    <h1 align="center">Личный кабинет</h1>
+    <table class="info_about">
+      <tr>
+        <th style="padding: 20px" class="forUser">Никнейм*
+          <div style="padding-top: 10px">
+            <input class="form-control me-2" placeholder="Ваш Никнейм"></input>
+          </div>
+        </th>
+        <th style="padding: 20px" class="forUser">Почта*
+          <div style="padding-top: 10px">
+            <input class="form-control me-2" placeholder="Ваша почта"></input>
+          </div>
+        </th>
+        <th style="padding: 20px" class="forUser">Номер телефона*
+          <div style="padding-top: 10px">
+            <input type="tel" placeholder="Номер телефона" pattern="[0-9]{11}" ></input>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="padding: 20px" class="forUser">Фамилия*
+          <div style="padding-top: 10px">
+            <input class="form-control me-2" placeholder="Фамилия"></input>
+          </div>
+        </th>
+        <th style="padding: 20px" class="forUser">Имя*
+          <div style="padding-top: 10px">
+            <input class="form-control me-2" placeholder="Имя"></input>
+          </div>
+        </th>
+        <th style="padding: 20px" class="forUser">Отчество
+          <div style="padding-top: 10px">
+            <input class="form-control me-2" placeholder="Отчество"></input>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="padding: 20px" class="forUser">Возраст
+          <div style="padding-top: 10px">
+            <input class="form-control me-2" placeholder="Возраст"></input>
+          </div>
+        </th>
+        <th style="padding: 20px" class="forUser" colspan="2">Пол
+          <div style="padding-top: 10px">
+            <label class="control control--radio">Жен
+              <input type="radio" name="radio" checked="checked" />
+              <div class="control__indicator"></div>
+            </label>
+            <label class="control control--radio">Муж
+              <input type="radio" name="radio" checked="checked" />
+              <div class="control__indicator"></div>
+            </label>
+            <label class="control control--radio">Не указан
+              <input type="radio" name="radio" checked="checked" />
+              <div class="control__indicator"></div>
+            </label>
+          </div>
+        </th>
+      </tr>
+      </table>
+      <table class="info_about">
+      <tr>
+        <th style="padding: 20px" class="forUser">Старый пароль*</th>
+        <th class="forUser">
+          <input class="form-control me-2" placeholder="Ваш пароль"></input>
+        </th>
+      </tr>
+      <tr>
+        <th style="padding: 20px" class="forUser">Новый пароль</th>
+        <th class="forUser">
+          <input class="form-control me-2" placeholder="Новый пароль"></input>
+        </th>
+      </tr>
+      <tr>
+        <th style="padding: 20px" class="forUser">Введите пароль для подтверждения</th>
+        <th class="forUser">
+          <input class="form-control me-2" placeholder="Подтвердите пароль"></input>
+        </th>
+      </tr>
+    </table>
+    <div style="padding: 10px">
+      <label align="center" id="necessary">*Обязательное поле для заполнения</label>
+    </div>
+    <div style="padding: 10px">
+      <button class="save">Сохранить изменения</button>
+    </div>
+    <div style="padding: 10px">
+      <button class="showOrder" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false">Просмотр заказов</button>
+    </div>
+    <div class="collapse" id="collapseExample">
+      <% orders.forEach(function(order){  %>
+      <%let allSum=0 %>
+      <div class="order">
+        <div class="numb_ord">
+          <span>Номер заказа: </span>
+          <span><%= order.number_order %></span>
+        </div>
+        <table class="costs">
+          <tr>
+            <th>
+              <h4>Наименования товаров</h4>
+            </th>
+            <th>
+              <h4>Изображения</h4>
+            </th>
+            <th>
+              <h4>Цена за единицу</h4>
+            </th>
+            <th>
+              <h4>Количество</h4>
+            </th>
+            <th>
+              <h4>Общая сумма</h4>
+            </th>
+            <th>
+              <h4>Статус</h4>
+            </th>
+            <th>
+              <h4>Дата заказа</h4>
+            </th>
+          </tr>
+          <% order.products.forEach(function(product){  %>
+          <tr>
+            <%- include('../partials/elem_for_order.ejs', {product:product}); %>
+            <%allSum +=(product.price*product.count_prod) %>
+          </tr>
+          <% }); %>
+        </table>
+        <div class="info_cost">
+          <span class="some_sum">
+            <span>Стоимость заказа: </span>
+            <span class="sums"><%= allSum%></span>
+          </span>
+          <span class="some_sum">
+            <span> Стоимость доставки: </span>
+            <span class="sums"><%= order.deliv_cost %></span>
+          </span>
+          <span class="some_sum">
+            <span>Общая сумма заказа: </span>
+            <span class="sums"><%= allSum+order.deliv_cost%></span>
+          </span>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

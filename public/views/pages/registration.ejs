@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <style>
+    .login{
+        padding: 20px;
+    }
+    .input-field{
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+
+<h4 align="center">Регистрация</h4>
+<form class="form form-login">
+    <table align="center">
+        <tr>
+            <th>
+                <label htmlFor="nickname" class="login">Никнейм</label>
+            </th>
+            <th>
+                <input type="nickname" name="nickname" class="validate" onChange={changeHandler} placeholder="Ваш Никнейм"/>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label htmlFor="email" class="login">Почта</label>
+            </th>
+            <th>
+                <input type="email" name="email" class="validate" onChange={changeHandler} placeholder="email"/>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label htmlFor="password" class="login">Пароль</label>
+            </th>
+            <th>
+                <input type="password" name="password" class="validate" onChange={changeHandler} placeholder="пароль"/>
+            </th>
+        </tr>
+    </table>
+    <div class="row">
+        <a class="wawes-effect wawes-light btn blue" onClick={registrationHandler} href="/login">
+            Регистрация
+        </a>
+        <a href="/login" class="btn-outline btn-reg">Войти?</a>
+    </div>
+</form>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

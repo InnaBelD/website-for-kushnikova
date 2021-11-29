@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+    <style>
+      .banner{
+        margin: 20px;
+      }
+      .catal {
+        color:black;
+        background: rgb(180, 211, 166);
+        font-size: 3vh;
+        text-shadow: 0 -1px 1px rgb(171, 201, 164) !important;
+        border: 2px solid rgb(154, 180, 142) !important;
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142) !important;
+        display: inline-block;
+        width: 40vh;
+    }
+
+    .catal:hover {
+        background: rgb(112, 161, 90);
+    }
+    </style>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="banner text-center">
+    <div class="card-header">
+      Добро пожаловать на сайт "Веб-аниме"!
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Анимешники, объединяйтесь!</h5>
+      <p class="card-text">Находитесь в поиске какой-то вещи с изображением вашего любимого героя аниме? Тогда вы обратились по адресу! На нашем 
+        сайте вы можете найти различные фигурки, значки, брелки и кружки с вашими любимыми аниме. Также вы всегда можете приобрести у нас 
+      линцензионную мангу с русским переводом!</p>
+      <a href="/catalog" class="catal btn-primary">Перейти в каталог</a>
+    </div>
+  </div>
+  <div class="main">
+    <h1 align="center">Новинки!</h1>
+    <div class="row">
+      <% products.forEach(function(product){  %>
+      <div class="col-xl-3 col-md-6 col-sm-12">
+        <%- include('../partials/card.ejs', {product:product}); %>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+<script src="/js/like.js"></script>
+</body>
+</html>

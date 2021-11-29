@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <%- include('../partials/head'); %>
+    <style>
+        .login {
+            padding: 20px;
+        }
+
+        .input-field {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <h4 align="center">Вход</h4>
+    <form class="form form-login">
+        <table align="center">
+            <tr>
+                <th>
+                    <label htmlFor="email" class="login">Почта</label>
+                </th>
+                <th>
+                    <input type="email" name="email" class="validate" onChange={changeHandler} placeholder="email"/>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <label htmlFor="password" class="login">Пароль</label>
+                </th>
+                <th>
+                    <input type="password" name="password" class="validate" onChange={changeHandler} placeholder="пароль"/>
+                </th>
+            </tr>
+        </table>
+        <div class="row">
+            <a class="wawes-effect wawes-light btn blue" href="/">
+                Войти
+            </a>
+            <a href="/registration" class="btn-outline btn-reg">Зарегаться?</a>
+        </div>
+    </form>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

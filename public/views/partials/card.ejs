@@ -1,0 +1,62 @@
+<div class="card">
+    <img src=<%= product.img %> class="card-img" alt="img_card" />
+    <div class="card-header">
+        <h4 class="card-title"><%= product.title %></h4>
+    </div>
+    <div class="card-body">
+        <p class="card-text"> <%= product.price %> руб. </p>
+    </div>
+    <div class="inline">
+        <button type="submit" class="like1" style="color: black">&#9829;</button>
+        <button type="submit" class="buy">Добавить в корзину</button>
+    </div>
+    <a class="wawes-effect wawes-light btn blue" onClick={registrationHandler} href="/product">
+        Подробнее..
+    </a>
+</div>
+
+<style>
+    button{
+
+    }
+    .card {
+        margin: 10%;
+        background: rgb(168, 196, 155);
+        width: 80%;
+        height: 80%;
+    }
+
+    .card-img {
+        align-self: center;
+        object-fit: cover;
+        width: 90%;
+        height: 90%;
+    }
+
+    .card-header {
+        font-weight: bolder;
+    }
+
+    .like1 {
+        margin-right: 5%;
+        background: rgb(180, 211, 166);
+        font-size: 120%;
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+    }
+
+    .buy {
+        background: rgb(180, 211, 166);
+        font-size: 120%;
+        text-shadow: 0 -1px 1px rgb(171, 201, 164);
+        border: 2px solid rgb(154, 180, 142);
+        border-radius: 5px;
+        box-shadow: 0 0 0 60px rgba(90, 90, 90, 0) inset, .1em .1em .2em rgb(154, 180, 142);
+    }
+
+    .buy:active {
+        background: rgb(112, 161, 90);
+    }
+</style>
